@@ -1,0 +1,30 @@
+2020-01-19
+ip: 0 sp: 0 cure: 0 dead: 0  
+2020-01-20
+ip: 0 sp: 0 cure: 0 dead: 0  
+2020-01-21
+ip: 239 sp: 0 cure: 25 dead: 6  
+2020-01-22
+ip: 338 sp: 0 cure: 28 dead: 9  
+2020-01-23
+ip: 399 sp: 0 cure: 28 dead: 17  
+2020-01-24
+ip: 494 sp: 0 cure: 31 dead: 24  
+2020-01-25
+ip: 658 sp: 0 cure: 32 dead: 39  
+2020-01-26
+ip: 958 sp: 0 cure: 42 dead: 52  
+2020-01-27
+ip: 1303 sp: 0 cure: 44 dead: 76  
+2020-01-28
+ip: 2570 sp: 0 cure: 44 dead: 100  
+2020-01-29
+ip: 3385 sp: 0 cure: 44 dead: 125  
+2020-01-30
+ip: 4370 sp: 0 cure: 54 dead: 162  
+2020-01-31
+ip: 5522 sp: 0 cure: 80 dead: 204  
+2020-02-01
+ip: 6774 sp: 0 cure: 130 dead: 249  
+2020-02-02
+ip: 8601 sp: 0 cure: 179 dead: 294  

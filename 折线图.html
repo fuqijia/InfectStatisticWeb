@@ -4,129 +4,591 @@
     <meta charset="utf-8">
     <title>第一个 ECharts 实例</title>
     <!-- 引入 echarts.js -->
+    <link rel="stylesheet" type="text/css" href="折线图.css"/>
+
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
 <body>
+    <div id="wrap">
+    <div id="head"><h1>湖北</h1>
+    <p>现有确诊<cite>8128</cite></p>
+    <p>累计确诊<cite>8601</cite></p>
+    <p>累计治愈<cite>179</cite></p>
+    <p>累计死亡<cite>294</cite></p>
+    </div>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 600px;height:400px;"></div>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
- 
-        // 指定图表的配置项和数据
-        option = {
-    backgroundColor: '#FFF',
-    grid: {
-        top: '9%',
-        bottom: '19%',
-        left: '6%',
-        right: '4%'
-    },
-    tooltip: {
-        trigger: 'axis',
-        label: {
-            show: true
-        }
-    },
-    xAxis: {
-        boundaryGap: true, //默认，坐标轴留白策略
-        axisLine: {
-            show: false
-        },
-        splitLine: {
-            show: false
-        },
-        axisTick: {
-            show: false,
-            alignWithLabel: true
-        },
-        data: [
-            '武汉', '襄阳', '黄冈', '荆门', '十堰', '随州',
-            '鄂州', '恩施', '宜昌', '孝感', '咸宁', '仙桃',
-            '潜江', '天门', '黄石', '荆州', '神农架'
-        ]
-    },
-    yAxis: {
-        axisLine: {
-            show: false
-        },
-        splitLine: {
-            show: true,
-            lineStyle: {
-                type: 'dashed',
-                color: 'rgba(33,148,246,0.2)'
-            }
-        },
-        axisTick: {
-            show: false
-        },
-        splitArea: {
-            show: true,
-            areaStyle: {
-                color: 'rgb(245,250,254)'
-            }
-        }
-    },
-    series: [{
-        type: 'line',
-        symbol: 'circle',
-        symbolSize: 7,
-        lineStyle: {
-            color: 'rgb(33,148,246)',
-            shadowBlur: 12,
-            shadowColor: 'rgb(33,148,246,0.9)',
-            shadowOffsetX: 1,
-            shadowOffsetY: 1
-        },
-        itemStyle: {
-            color: 'rgb(33,148,246)',
-            borderWidth: 1,
-            borderColor: '#FFF'
-        },
-        label: {
-            show: false,
-            distance: 1,
-            emphasis: {
-                show: true,
-                offset: [25, -2],
-                //borderWidth:1,
-                // borderColor:'rgb(33,148,246)',
-                //formatter:'{bg|{b}\n数据量:{c}}',
-                color: '#FFF',
-                padding: [8, 20, 8, 6],
-                //width:60,
-                height: 36,
-                formatter: function(params) {
-                    var name = params.name;
-                    var value = params.data;
-                    var str = name + '\n数据量：' + value;
-                    return str;
-                },
-                rich: {
-                    bg: {
-                        width: 78,
-                        //height:42,
-                        color: '#FFF',
-                        padding: [20, 0, 20, 10]
-                    },
-                    br: {
-                        width: '100%',
-                        height: '100%'
-                    }
 
-                }
-            }
-        },
-        data: [
-            2000, 1800, 2800, 900, 1600, 2000,
-            3000, 2030, 1356, 1900, 4000, 3000,
-            2000, 3000, 4200, 3200, 3800
-        ]
-    }]
-};
- 
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
+
+
+    <div class="tab-content">
+        <div id="ip" >1
+
+       
+        </div>
+        
+       
+    </div>
+    <div id="sidebar" class="tab-head">
+
+        <h2 class="selected">新增确诊趋势</h2>
+        <h2>累计确诊趋势</h2>
+        <h2>累计治愈</h2>
+        <h2>累计死亡</h2>
+    </div>
+   
+</div>
 </body>
+
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart0 = echarts.init(document.getElementById('ip'));
+
+    // 指定图表的配置项和数据
+    option0 = {
+backgroundColor: '#fff',
+grid: {
+    top: '9%',
+    bottom: '19%',
+    left: '6%',
+    right: '4%'
+},
+tooltip: {
+    trigger: 'axis',
+    label: {
+        show: true
+    }
+},
+xAxis: {
+    boundaryGap: true, //默认，坐标轴留白策略
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: false
+    },
+    axisTick: {
+        show: false,
+        alignWithLabel: true
+    },
+    data: [
+    '2020/1/19',
+    '2020/1/20',
+    '2020/1/21',
+    '2020/1/22',
+    '2020/1/23',
+    '2020/1/24',
+    '2020/1/25',
+    '2020/1/26',
+    '2020/1/27',
+    '2020/1/28',
+    '2020/1/29',
+    '2020/1/30',
+    '2020/1/31',
+    '2020/2/1',
+    '2020/2/2',
+    ]
+},
+yAxis: {
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: true,
+        lineStyle: {
+            type: 'dashed',
+            color: 'rgba(33,148,246,0.2)'
+        }
+    },
+    axisTick: {
+        show: false
+    },
+    splitArea: {
+        show: true,
+        areaStyle: {
+            color: 'rgb(0,0,0)'
+        }
+    }
+},
+series: [{
+    type: 'line',
+    symbol: 'circle',
+    symbolSize: 7,
+    lineStyle: {
+        color: 'rgb(33,148,246)',
+        shadowBlur: 12,
+        shadowColor: 'rgb(33,148,246,0.9)',
+        shadowOffsetX: 1,
+        shadowOffsetY: 1
+    },
+    itemStyle: {
+        color: 'rgb(33,148,246)',
+        borderWidth: 1,
+        borderColor: '#FFF'
+    },
+    label: {
+        show: false,
+        distance: 1,
+        emphasis: {
+            show: true,
+            offset: [25, -2],
+            //borderWidth:1,
+            // borderColor:'rgb(33,148,246)',
+            //formatter:'{bg|{b}\n数据量:{c}}',
+            color: '#FFF',
+            padding: [8, 20, 8, 6],
+            //width:60,
+            height: 36,
+            formatter: function(params) {
+                var name = params.name;
+                var value = params.data;
+                var str = name + '\n数据量：' + value;
+                return str;
+            },
+            rich: {
+                bg: {
+                    width: 78,
+                    //height:42,
+                    color: '#FFF',
+                    padding: [20, 0, 20, 10]
+                },
+                br: {
+                    width: '100%',
+                    height: '100%'
+                }
+
+            }
+        }
+    },
+    data: [
+        0, 0, 239, 99, 61, 95,
+        164, 300, 345, 1267, 815, 985,
+        1152, 1252, 1827
+    ]
+}]
+};
+
+    // 使用刚指定的配置项和数据显示图表。
+    
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart1 = echarts.init(document.getElementById('ip'));
+
+    // 指定图表的配置项和数据
+    option1 = {
+backgroundColor: '#FFF',
+grid: {
+    top: '9%',
+    bottom: '19%',
+    left: '6%',
+    right: '4%'
+},
+tooltip: {
+    trigger: 'axis',
+    label: {
+        show: true
+    }
+},
+xAxis: {
+    boundaryGap: true, //默认，坐标轴留白策略
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: false
+    },
+    axisTick: {
+        show: false,
+        alignWithLabel: true
+    },
+    data: [
+    '2020/1/19',
+    '2020/1/20',
+    '2020/1/21',
+    '2020/1/22',
+    '2020/1/23',
+    '2020/1/24',
+    '2020/1/25',
+    '2020/1/26',
+    '2020/1/27',
+    '2020/1/28',
+    '2020/1/29',
+    '2020/1/30',
+    '2020/1/31',
+    '2020/2/1',
+    '2020/2/2',
+    ]
+},
+yAxis: {
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: true,
+        lineStyle: {
+            type: 'dashed',
+            color: 'rgba(233,198,246,2)'
+        }
+    },
+    axisTick: {
+        show: false
+    },
+    splitArea: {
+        show: true,
+        areaStyle: {
+            color: 'rgb(0,0,0)'
+        }
+    }
+},
+series: [{
+    type: 'line',
+    symbol: 'circle',
+    symbolSize: 7,
+    lineStyle: {
+        color: 'rgb(233,148,246)',
+        shadowBlur: 12,
+        shadowColor: 'rgb(33,148,246,0.9)',
+        shadowOffsetX: 1,
+        shadowOffsetY: 1
+    },
+    itemStyle: {
+        color: 'rgb(233,148,246)',
+        borderWidth: 1,
+        borderColor: '#FFF'
+    },
+    label: {
+        show: false,
+        distance: 1,
+        emphasis: {
+            show: true,
+            offset: [25, -2],
+            //borderWidth:1,
+            // borderColor:'rgb(33,148,246)',
+            //formatter:'{bg|{b}\n数据量:{c}}',
+            color: '#fff',
+            padding: [8, 20, 8, 6],
+            //width:60,
+            height: 36,
+            formatter: function(params) {
+                var name = params.name;
+                var value = params.data;
+                var str = name + '\n数据量：' + value;
+                return str;
+            },
+            rich: {
+                bg: {
+                    width: 78,
+                    //height:42,
+                    color: '#FFF',
+                    padding: [20, 0, 20, 10]
+                },
+                br: {
+                    width: '100%',
+                    height: '100%'
+                }
+
+            }
+        }
+    },
+    data: [
+        0, 0, 239, 338, 399, 494,
+        658, 958, 1303, 2570, 3385, 4370,
+        5522, 6774, 8601
+    ]
+}]
+};
+
+    // 使用刚指定的配置项和数据显示图表。
+    
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart2 = echarts.init(document.getElementById('ip'));
+
+    // 指定图表的配置项和数据
+    option2 = {
+backgroundColor: '#FFF',
+grid: {
+    top: '9%',
+    bottom: '19%',
+    left: '6%',
+    right: '4%'
+},
+tooltip: {
+    trigger: 'axis',
+    label: {
+        show: true
+    }
+},
+xAxis: {
+    boundaryGap: true, //默认，坐标轴留白策略
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: false
+    },
+    axisTick: {
+        show: false,
+        alignWithLabel: true
+    },
+    data: [
+    '2020/1/19',
+    '2020/1/20',
+    '2020/1/21',
+    '2020/1/22',
+    '2020/1/23',
+    '2020/1/24',
+    '2020/1/25',
+    '2020/1/26',
+    '2020/1/27',
+    '2020/1/28',
+    '2020/1/29',
+    '2020/1/30',
+    '2020/1/31',
+    '2020/2/1',
+    '2020/2/2',
+    ]
+},
+yAxis: {
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: true,
+        lineStyle: {
+            type: 'dashed',
+            color: 'rgba(33,148,246,0.2)'
+        }
+    },
+    axisTick: {
+        show: false
+    },
+    splitArea: {
+        show: true,
+        areaStyle: {
+            color: 'rgb(0,0,0)'
+        }
+    }
+},
+series: [{
+    type: 'line',
+    symbol: 'circle',
+    symbolSize: 7,
+    lineStyle: {
+        color: 'rgb(100,250,100)',
+        shadowBlur: 12,
+        shadowColor: 'rgb(33,148,246,0.9)',
+        shadowOffsetX: 1,
+        shadowOffsetY: 1
+    },
+    itemStyle: {
+        color: 'rgb(133,248,246)',
+        borderWidth: 1,
+        borderColor: '#FFF'
+    },
+    label: {
+        show: false,
+        distance: 1,
+        emphasis: {
+            show: true,
+            offset: [25, -2],
+            //borderWidth:1,
+            // borderColor:'rgb(33,148,246)',
+            //formatter:'{bg|{b}\n数据量:{c}}',
+            color: '#FFF',
+            padding: [8, 20, 8, 6],
+            //width:60,
+            height: 36,
+            formatter: function(params) {
+                var name = params.name;
+                var value = params.data;
+                var str = name + '\n数据量：' + value;
+                return str;
+            },
+            rich: {
+                bg: {
+                    width: 78,
+                    //height:42,
+                    color: '#FFF',
+                    padding: [20, 0, 20, 10]
+                },
+                br: {
+                    width: '100%',
+                    height: '100%'
+                }
+
+            }
+        }
+    },
+    data: [
+        0, 0, 25, 28, 28, 31,
+        32, 42, 44, 44, 44, 54,
+        80, 130, 179
+    ]
+}]
+};
+
+    // 使用刚指定的配置项和数据显示图表。
+    
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart3 = echarts.init(document.getElementById('ip'));
+
+    // 指定图表的配置项和数据
+    option3 = {
+backgroundColor: '#FFF',
+grid: {
+    top: '9%',
+    bottom: '19%',
+    left: '6%',
+    right: '4%'
+},
+tooltip: {
+    trigger: 'axis',
+    label: {
+        show: true
+    }
+},
+xAxis: {
+    boundaryGap: true, //默认，坐标轴留白策略
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: false
+    },
+    axisTick: {
+        show: false,
+        alignWithLabel: true
+    },
+    data: [
+    '2020/1/19',
+    '2020/1/20',
+    '2020/1/21',
+    '2020/1/22',
+    '2020/1/23',
+    '2020/1/24',
+    '2020/1/25',
+    '2020/1/26',
+    '2020/1/27',
+    '2020/1/28',
+    '2020/1/29',
+    '2020/1/30',
+    '2020/1/31',
+    '2020/2/1',
+    '2020/2/2',
+    ]
+},
+yAxis: {
+    axisLine: {
+        show: false
+    },
+    splitLine: {
+        show: true,
+        lineStyle: {
+            type: 'dashed',
+            color: 'rgba(33,148,246,0.2)'
+        }
+    },
+    axisTick: {
+        show: false
+    },
+    splitArea: {
+        show: true,
+        areaStyle: {
+            color: 'rgb(0,0,0)'
+        }
+    }
+},
+series: [{
+    type: 'line',
+    symbol: 'circle',
+    symbolSize: 7,
+    lineStyle: {
+        color: 'rgb(255,14,26)',
+        shadowBlur: 12,
+        shadowColor: 'rgb(33,148,246,0.9)',
+        shadowOffsetX: 1,
+        shadowOffsetY: 1
+    },
+    itemStyle: {
+        color: 'rgb(255,18,46)',
+        borderWidth: 1,
+        borderColor: '#FFF'
+    },
+    label: {
+        show: false,
+        distance: 1,
+        emphasis: {
+            show: true,
+            offset: [25, -2],
+            //borderWidth:1,
+            // borderColor:'rgb(33,148,246)',
+            //formatter:'{bg|{b}\n数据量:{c}}',
+            color: '#FFF',
+            padding: [8, 20, 8, 6],
+            //width:60,
+            height: 36,
+            formatter: function(params) {
+                var name = params.name;
+                var value = params.data;
+                var str = name + '\n数据量：' + value;
+                return str;
+            },
+            rich: {
+                bg: {
+                    width: 78,
+                    //height:42,
+                    color: '#FFF',
+                    padding: [20, 0, 20, 10]
+                },
+                br: {
+                    width: '100%',
+                    height: '100%'
+                }
+
+            }
+        }
+    },
+    data: [
+        0, 0, 6, 9, 17, 24,
+        39, 52, 76, 100, 125, 162,
+        204, 249, 294
+    ]
+}]
+};
+
+    // 使用刚指定的配置项和数据显示图表。
+    
+</script>
+
+<script >
+    var tabs = document.getElementsByClassName('tab-head')[0].getElementsByTagName('h2'),
+                  contents = document.getElementsByClassName('tab-content')[0].getElementsByTagName('div');
+   var myChart=[myChart0,myChart1,myChart2,myChart3];
+   var option=[option0,option1,option2,option3]
+              function changeTab(tabs) {
+                  for(var i = 0, len = tabs.length; i < len; i++) {
+                      tabs[i].onmouseover = showTab;
+                  }
+              };
+              changeTab(tabs);myChart0.setOption(option0);
+              function showTab() {
+                  for(var i = 0, len = tabs.length; i < len; i++) {
+                      if(tabs[i] === this) {
+                          tabs[i].className = 'selected';
+                         myChart[i].setOption(option[i]);
+                      } else {
+                          tabs[i].className = '';  
+                         // myChart[i].clear();
+                      }
+                  }
+              }
+  </script>
 </html>
