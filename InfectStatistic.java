@@ -664,7 +664,7 @@ class InfectStatistic {
 		{
 			 InfectStatistic a;
 			 a=new InfectStatistic();
-			 a.province="天津";
+			 a.province="江西";
 		// String line="广东 新增 感染患者 1人";
 		 //System.out.println( line.matches(type1));
 			String [] t= {"list","-log","D:\\QQfilerecv\\部分疫情日志log\\","-out","D:\\output.txt","-province",a.province};
