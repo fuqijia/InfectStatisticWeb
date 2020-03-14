@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript">
+      var myChart = echarts.init(document.querySelector('#container'))
+      fetch('http://api.tianapi.com/txapi/ncovcity/index?key=9c810f5b7c980976f07edbab4e61f332')
+        .then(res => res.json())
+        .then(res => {
+          var newslist = res.newslist
+          var filterData = []
+          newslist.forEach(item => {
+            filterData.push({
+              name: item.provinceShortName,
+              value: item.confirmedCount,
+              deadCount: item.deadCount,
+              curedCount: item.curedCount,
+              url: "./各省疫情变化折线图/"+item.provinceShortName+".html"
+            })
+          })
+          myChart.setOption({
+            title: {
+              // 标题
+              text: 'nCov-全国实例疫情数据分布图',
+              subtext: '主页疫情专题',
+              left: 'center'
+            },
+            // 图表背景色
+            backgroundColor: '#f7f7f7',
+            visualMap: {
+                type: 'piecewise',
+                min: 0,
+                max: 300,
+                left: 'left',
+                top: 'bottom',         // 文本，默认为数值文本
+                calculable : true,
+                pieces: [
+                    {value: 0, color: '#fff'},
+                    {min: 1, max: 9, color: 'rgb(255,170,133)'},
+                    {min: 10, max: 99, color: 'rgb(255,123,105)'},
+                    {min: 100, max: 999, color: 'rgb(204,41,41)'},
+                    {min: 1000, max: 9999, color: 'rgb(140,13,13)'},
+                    {min: 10000, color: 'rgb(102,2,8)'}
+                ]
+            },
+            tooltip: {
+              // triggerOn: 'click',
+              formatter: function(params) {
+                // 提示框浮层内容格式器，支持字符串模板和回调函数两种形式
+                // console.log(params, 'formatter')
+                return `地区：${params.name}<br/>确诊：${params.value || 0}人<br/>治愈：${(params.data && params.data.curedCount) || 0}人<br/>死亡：${params.data?.deadCount || 0}人<br/>`
+              }
+            },
+            series: [
+              {
+                type: 'map', // 当前图表的类型
+                map: 'china', // 当前地图是中国地图
+                label: {
+                  // 覆盖物设置
+                  show: true
+                },
+                data: filterData
+              }
+            ]
+          })
+          myChart.on("click",function(e){
+            console.log(e);
+            window.open(e.data.url);
+          })
+        })
+    </script>
+   </body>
+</html>
