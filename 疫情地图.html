@@ -13,12 +13,12 @@
        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
        <script type="text/javascript">
       var myChart = echarts.init(document.querySelector('#container'))
-      fetch('http://127.0.0.1:8066/api/data')
+      fetch('http://api.tianapi.com/txapi/ncovcity/index?key=9c810f5b7c980976f07edbab4e61f332')
         .then(res => res.json())
         .then(res => {
-          var getListByCountryTypeService1 = res.getListByCountryTypeService1
+          var newslist = res.newslist
           var filterData = []
-          getListByCountryTypeService1.forEach(item => {
+          newslist.forEach(item => {
             filterData.push({
               name: item.provinceShortName,
               value: item.confirmedCount,
