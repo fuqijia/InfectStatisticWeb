@@ -159,19 +159,19 @@ class InfectStatistic {
 			Iterator<String> it=dates.iterator();
 			         while(it.hasNext()){
 			             System.out.println(it.next());System.out.println(",");
-			         }System.out.println(",---------分割---");
+			         }System.out.println(",---新增确诊------分割---");
 			 for(String string:paddips)
 			 {
 				System.out.println(string+",");
-			 }System.out.println(",---------分割---");
+			 }System.out.println(",---累计确诊------分割---");
 			 for(String string:pips)
 			 {
 				 System.out.println(string+",");
-			 }System.out.println(",---------分割---");
+			 }System.out.println(",----累计治愈-----分割---");
 			 for(String string:pcures)
 			 {
 				 System.out.println(string+",");
-			 }System.out.println(",---------分割---");
+			 }System.out.println(",----累计死亡-----分割---");
 			 for(String string:pdeads)
 			 {
 				 System.out.println(string+",");
