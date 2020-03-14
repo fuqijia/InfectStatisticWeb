@@ -151,26 +151,32 @@ class InfectStatistic {
 		}
 		
 		public void print2() {
+			System.out.println("现有确诊    "+ip[proToInt(province)]);
+			int i=ip[proToInt(province)]+cure[proToInt(province)]+dead[proToInt(province)];
+			System.out.println("累计确诊    "+i);
+			System.out.println("累计治愈    "+cure[proToInt(province)]);
+			System.out.println("累计死亡    "+dead[proToInt(province)]);
 			Iterator<String> it=dates.iterator();
 			         while(it.hasNext()){
 			             System.out.println(it.next());System.out.println(",");
-			         }
+			         }System.out.println(",---------分割---");
 			 for(String string:paddips)
 			 {
 				System.out.println(string+",");
-			 }
+			 }System.out.println(",---------分割---");
 			 for(String string:pips)
 			 {
 				 System.out.println(string+",");
-			 }
+			 }System.out.println(",---------分割---");
 			 for(String string:pcures)
 			 {
 				 System.out.println(string+",");
-			 }
+			 }System.out.println(",---------分割---");
 			 for(String string:pdeads)
 			 {
 				 System.out.println(string+",");
 			 }
+			 System.out.println(",---------分割---");
 		}
 		
 		//省份对应下标
@@ -658,7 +664,7 @@ class InfectStatistic {
 		{
 			 InfectStatistic a;
 			 a=new InfectStatistic();
-			 a.province="湖北";
+			 a.province="天津";
 		// String line="广东 新增 感染患者 1人";
 		 //System.out.println( line.matches(type1));
 			String [] t= {"list","-log","D:\\QQfilerecv\\部分疫情日志log\\","-out","D:\\output.txt","-province",a.province};
