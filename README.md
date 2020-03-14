@@ -3,7 +3,7 @@
 
 -----
 
-博客链接：https:////www.cnblogs.com/jackmusi/p/12493733.html
+博客链接：https://www.cnblogs.com/jackmusi/p/12493733.html
 
 作业链接：https://edu.cnblogs.com/campus/fzu/2020SpringW/homework/10456
 
