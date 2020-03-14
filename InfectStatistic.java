@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -71,6 +72,11 @@ class InfectStatistic {
 		String log=null;
 		String date=null;
 		String out=null;
+		ArrayList<String> dates=new ArrayList<String>();
+		ArrayList<String> paddips=new ArrayList<String>();
+		ArrayList<String> pips=new ArrayList<String>();
+		ArrayList<String> pcures=new ArrayList<String>();
+		ArrayList<String> pdeads=new ArrayList<String>();
 		InfectStatistic()
 		{
 			exist[0]=1;
@@ -79,7 +85,7 @@ class InfectStatistic {
 			type[2]="";
 			type[3]="";
 		}
-
+		String province=null;
 		public void print(String p)
 		{
 			int i=proToInt(p);
@@ -143,12 +149,29 @@ class InfectStatistic {
 				System.out.print("没有list,请重新输入");
 			}
 		}
-		public  int getIp(int n)
-		{
-			return ip[n];
+		
+		public void print2() {
+			Iterator<String> it=dates.iterator();
+			         while(it.hasNext()){
+			             System.out.println(it.next());
+			         }
+			 for(String string:paddips)
+			 {
+				System.out.println(string);
+			 }
+			 for(String string:pips)
+			 {
+				 System.out.println(string);
+			 }
+			 for(String string:pcures)
+			 {
+				 System.out.println(string);
+			 }
+			 for(String string:pdeads)
+			 {
+				 System.out.println(string);
+			 }
 		}
-		
-		
 		
 		//省份对应下标
 		public int proToInt(String p)
@@ -441,15 +464,25 @@ class InfectStatistic {
 						
 						
 				}//System.out.println(filedate);//
-				print("湖北");
+				dates.add(filedate);
+				pips.add(Integer.toString(ip[proToInt(province)]));
+				
+				pcures.add(Integer.toString(cure[proToInt(province)]));
+				pdeads.add(Integer.toString(dead[proToInt(province)]));
+				
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
-				}
+					}
 
 			}
-			
-			
+			paddips.add(pips.get(0));
+			for(int i=1;i<pips.size();i++)
+			{
+				int a=Integer.parseInt( pips.get(i) )-Integer.parseInt( pips.get(i-1) ); 
+				paddips.add(Integer.toString(a));
+			}
+			print2();
 		}
 		
 		public  void writeFile()
@@ -625,9 +658,10 @@ class InfectStatistic {
 		{
 			 InfectStatistic a;
 			 a=new InfectStatistic();
-		 String line="广东 新增 感染患者 1人";
-		 System.out.println( line.matches(type1));
-			String [] t= {"list","-log","D:\\QQfilerecv\\部分疫情日志log\\","-out","D:\\output.txt","-province","湖北"};
+			 a.province="湖北";
+		// String line="广东 新增 感染患者 1人";
+		 //System.out.println( line.matches(type1));
+			String [] t= {"list","-log","D:\\QQfilerecv\\部分疫情日志log\\","-out","D:\\output.txt","-province",a.province};
 			a.update(t);
 			a.readFile();
 			
