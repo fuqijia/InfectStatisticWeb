@@ -1,0 +1,58 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+    color: #000;
+}
+
+#warp,#sidebar{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-width: 1080px;
+}
+#wrap{
+    background: #99c;
+    margin: 0 auto;
+   
+
+}
+
+#sidebar{
+    background: #99c;
+    float: right;
+    width: 300px;
+    height: auto;
+}
+h2 {
+    width: 300px;
+    height: 50px;
+    margin: 0;
+    float: left;
+    text-align: center;
+}
+
+.tab-content {
+    border: solid cornflowerblue 1px;
+    background-color: honeydew;
+    float: left;
+    width: 1200px;
+    height:800px;
+}
+
+
+
+#ip{
+    width: 1200px;
+    height: 800px;
+}
+
+
+.selected {
+    background-color: cornflowerblue;
+}
+
+.tab-content .show{
+    display: block;
+}
