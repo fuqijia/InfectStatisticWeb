@@ -153,23 +153,23 @@ class InfectStatistic {
 		public void print2() {
 			Iterator<String> it=dates.iterator();
 			         while(it.hasNext()){
-			             System.out.println(it.next());
+			             System.out.println(it.next());System.out.println(",");
 			         }
 			 for(String string:paddips)
 			 {
-				System.out.println(string);
+				System.out.println(string+",");
 			 }
 			 for(String string:pips)
 			 {
-				 System.out.println(string);
+				 System.out.println(string+",");
 			 }
 			 for(String string:pcures)
 			 {
-				 System.out.println(string);
+				 System.out.println(string+",");
 			 }
 			 for(String string:pdeads)
 			 {
-				 System.out.println(string);
+				 System.out.println(string+",");
 			 }
 		}
 		
